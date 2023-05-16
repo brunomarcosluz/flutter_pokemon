@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class PokeHub {
-  List<Pokemon> pokemon;
+  List<Pokemon>? pokemon;
 
   PokeHub({this.pokemon});
 
@@ -9,7 +9,7 @@ class PokeHub {
     if (json['pokemon'] != null) {
       pokemon = new List<Pokemon>();
       json['pokemon'].forEach((v) {
-        pokemon.add(new Pokemon.fromJson(v));
+        pokemon?.add(new Pokemon.fromJson(v));
       });
     }
   }
@@ -17,7 +17,7 @@ class PokeHub {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.pokemon != null) {
-      data['pokemon'] = this.pokemon.map((v) => v.toJson()).toList();
+      data['pokemon'] = this.pokemon?.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -39,9 +39,9 @@ class Pokemon {
   String spawnTime;
   List<double> multipliers;
   List<String> weaknesses;
-  List<NextEvolution> nextEvolution;
+  List<NextEvolution>? nextEvolution;
 
-  Pokemon(
+  Pokemon (
     {this.id,
     this.num,
     this.name,
@@ -75,9 +75,9 @@ class Pokemon {
       multipliers = json['multipliers'].cast<double>();
       weaknesses = json['weaknesses'].cast<String>();
       if (json['next_evolution'] != null) {
-        nextEvolution = new List<NextEvolution>();
+        nextEvolution = List<NextEvolution>();
         json['next_evolution'].forEach((v) {
-          nextEvolution.add(new NextEvolution.fromJson(v));
+          nextEvolution?.add(new NextEvolution.fromJson(v));
         });
       }
     }
@@ -100,15 +100,15 @@ class Pokemon {
     data['multipliers'] = this.multipliers;
     data['weaknesses'] = this.weaknesses;
     if (this.nextEvolution != null) {
-      data['next_evolution'] = this.nextEvolution.map((v) => v.toJson()).toList();
+      data['next_evolution'] = this.nextEvolution?.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class  NextEvolution {
-  String num;
-  String name;
+  String? num;
+  String? name;
 
   NextEvolution({this.num, this.name});
   

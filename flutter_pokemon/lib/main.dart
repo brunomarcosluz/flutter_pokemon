@@ -33,7 +33,7 @@ class HomePageState extends State<HomePage> {
   fectData() async {
     var res = await http.get(url);
     var decodedJson = jsonDecode(res.body);
-    pokeHub = PokeHUb.fromJson(decodedJson);
+    pokeHub = PokeHub.fromJson(decodedJson);
     print(pokeHub.toJson());
     setState(() {});
   }
