@@ -42,21 +42,21 @@ class Pokemon {
   List<NextEvolution>? nextEvolution;
 
   Pokemon (
-    {this.id,
-    this.num,
-    this.name,
-    this.img,
-    this.height,
-    this.weight,
-    this.candy,
-    this.candyCount,
-    this.egg,
-    this.spawnChance,
-    this.avgSpawns,
-    this.spawnTime,
-    this.multipliers,
-    this.weaknesses,
-    this.nextEvolution});
+    {required this.id,
+    required this.num,
+    required this.name,
+    required this.img,
+    required this.height,
+    required this.weight,
+    required this.candy,
+    required this.candyCount,
+    required this.egg,
+    required this.spawnChance,
+    required this.avgSpawns,
+    required this.spawnTime,
+    required this.multipliers,
+    required this.weaknesses,
+    required this.nextEvolution});
 
     Pokemon.fromJson(Map<String, dynamic> json) {
       id = json['id'];

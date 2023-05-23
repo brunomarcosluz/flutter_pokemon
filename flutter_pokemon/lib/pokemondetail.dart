@@ -1,10 +1,10 @@
-import 'package:flutter_web/material.dart';
-import 'package:pokeappen/pokemon.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_pokemon/pokemon.dart';
 
 class PokeDetail extends StatelessWidget {
   final Pokemon pokemon;
 
-  PokeDetail({this.pokemon});
+  PokeDetail({required this.pokemon});
 
   bodyWidget(BuildContext context) => Stack(
         children: <Widget>[
@@ -63,11 +63,11 @@ class PokeDetail extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: pokemon.nextEvolution == null
                         ? <Widget>[Text("This is the final form")]
-                        : pokemon.nextEvolution
+                        : pokemon.nextEvolution!
                             .map((n) => FilterChip(
                                   backgroundColor: Colors.green,
                                   label: Text(
-                                    n.name,
+                                    n.name!,
                                     style: TextStyle(color: Colors.white),
                                   ),
                                   onSelected: (b) {},
