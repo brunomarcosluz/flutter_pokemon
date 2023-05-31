@@ -21,7 +21,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   var url = "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json";
 
-  PokeHub pokeHub;
+  PokeHub? pokeHub;
 
   @override
   void initState() {
@@ -75,7 +75,7 @@ class HomePageState extends State<HomePage> {
                         width: MediaQuery.of(context).size.width * 2.0,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            fit: BoxFit.cover 
+                            fit: BoxFit.cover, 
                             image: NetworkImage(poke.img))),
                       ),
                       Text(
